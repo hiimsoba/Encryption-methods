@@ -71,6 +71,5 @@ int main() {
     if(option) {
         createKey(key, text) ;
     }
-    cout << key << endl ;
     cout << compute(text, key, option) ;
 }
