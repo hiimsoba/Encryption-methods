@@ -23,18 +23,6 @@ char add(char &c, bool lwr) {
     }
 }
 
-void createKey(string &key, string text) {
-    int index = 0 ;
-    while(key.size() != text.size()) {
-        if(isalpha(text[index])) {
-           key += text[index++] ;
-        }
-        else {
-            index++ ;
-        }
-    }
-}
-
 string compute(string input, int key) {
     string res ;
     for(int i = 0 ; i < input.size() ; i++) {
