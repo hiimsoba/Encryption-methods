@@ -6,28 +6,22 @@ using namespace std ;
 ifstream f("in") ;
 ofstream g("out") ;
 
-string encrypt(string text, int key)
-{
+string encrypt(string text, int key) {
     string res ;
 
-    for(int i = 1 ; i <= key ; i++)
-    {
-        for(int j = i - 1 ; j < text.size() ; j += key)
-        {
+    for(int i = 1 ; i <= key ; i++) {
+        for(int j = i - 1 ; j < text.size() ; j += key) {
             res += text[j] ;
         }
     }
     return res ;
 }
 
-string decrypt(string text, int key)
-{
+string decrypt(string text, int key) {
     string res ;
 
-    for(int i = 1 ; i <= key ; i++)
-    {
-        for(int j = i - 1 ; ; j += (key + 1))
-        {
+    for(int i = 1 ; i <= key ; i++) {
+        for(int j = i - 1 ; ; j += (key + 1)) {
             res += text[j] ;
             if(j > text.size()) break ;
         }
@@ -35,8 +29,7 @@ string decrypt(string text, int key)
     return res ;
 }
 
-int main()
-{
+int main() {
     bool option ;
     f >> option ;
 
