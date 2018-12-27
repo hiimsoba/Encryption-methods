@@ -42,7 +42,7 @@ std::string createKey(const std::string& key, const std::string& text) {
 }
 
 // magic...
-std::string compute(std::string input, std::string key, bool option) {
+std::string compute(const std::string& input, std::string key, bool option) {
     int kIndex = 0;
     std::string res;
     for (size_t i = 0; i < input.size(); i++) {
