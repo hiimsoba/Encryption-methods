@@ -1,57 +1,32 @@
-#include <fstream>
 #include <iostream>
+#include <string>
 
-using namespace std ;
-
-ifstream f("in") ;
-ofstream g("out") ;
-
-string encrypt(string text, int key) {
-    string res ;
-
-    for(int i = 1 ; i <= key ; i++) {
-        for(int j = i - 1 ; j < text.size() ; j += key) {
-            res += text[j] ;
+std::string encrypt(const std::string& plain, int key) {
+    std::string res;
+    for (size_t i = 0; i < key; i++) {
+        for (size_t j = 0; i + j < plain.size(); j += key) {
+            res += plain[i + j];
         }
     }
-    return res ;
+    return res;
 }
 
-string decrypt(string text, int key) {
-    string res ;
-
-    for(int i = 1 ; i <= key ; i++) {
-        for(int j = i - 1 ; ; j += (key + 1)) {
-            res += text[j] ;
-            if(j > text.size()) break ;
-        }
-    }
-    return res ;
+std::string decrypt(const std::string& plain, int key) {
+    std::string res = "good luck with this";
+    // TODO... yikes
+    return res;
 }
 
 int main() {
-    bool option ;
-    f >> option ;
+    /**
+        true - encrypt
+        false - decrypt
+    **/
+    bool option = false;
 
-    string text ;
-    f.get() ;
-    getline(f, text) ;
+    std::string text = "welp, this is almost working";
+    int key = 4;
 
-    int key ;
-    f >> key ;
-
-    double flag = (double) text.size() / key ;
-
-    if(flag != int(flag)) flag = int(flag) + 1 ;
-
-    string result ;
-
-    if(option) result = encrypt(text, flag) ;
-    else result = decrypt(text, flag) ;
-
-    g << result ;
-
-    f.close() ;
-    g.close() ;
-    return 0 ;
+    std::cout << (option ? encrypt(text, key) : decrypt(text, key));
+    return 0;
 }
