@@ -1,4 +1,6 @@
 # Encryption-methods
 Collection of a few encryption methods.
 
-Made using C++.
+To-do list :
+ - add some documentation to each encryption method ( or just visit the wikipedia and add a small description )
+ - erm... idk
